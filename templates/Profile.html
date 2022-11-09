@@ -1,0 +1,50 @@
+{% extends 'Page_main.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h1 class="head">Hello {{fname}} welcome to your profile</h1>
+{% endblock %}
+{% block undercont %}
+<h3>Your profile information:</h3>
+<br>
+<h5>Name: {{fname}}.</h5>
+<h5>Surname: {{sname}}.</h5>
+<h5>Email: {{email}}.</h5>
+<br><br>
+<h3>You can change your personal data here &#8595;</h3>
+<br>
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button"  onclick="history.back()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+    <button type="button"  onclick="window.location='/Profile'">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+<form method="POST">
+    <label>New first name</label>
+    <input class="form-control" type="text" placeholder="First name" name="NFirst name" required>
+<br>
+    <label>New second name</label>
+<input class="form-control" type="text" placeholder="Second name" name="NSecond name" required>
+<br>
+    <label>New email</label>
+<input class="form-control" type = "email" placeholder="name@example.com" name="NUser Email" required>
+<br>
+    <label>New password</label>
+<input class="form-control" type="password" placeholder="Password" name="NPassword" required>
+<br>
+ <div class="g-recaptcha" data-sitekey="6LcQW-8iAAAAAH4vfuh5GYp5HvMdh6C1NnNIyvnh" data-callback="removeFakeCaptcha"></div>
+   <input type="checkbox" class="captcha-fake-field" tabindex="-1" required>
+<br>
+<button type="submit" class="btn btn-dark left">Change</button>
+</form>
+{% endblock %}

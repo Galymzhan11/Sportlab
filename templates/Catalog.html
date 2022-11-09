@@ -1,0 +1,31 @@
+{% extends 'Page_main.html' %}
+{% block title %}Catalog{% endblock %}
+{% block content %}
+<h1 class="head">Hello customer, you can buy several items that you want</h1>
+{% endblock %}
+{% block undercont %}
+ <div class="container">
+        <div class="card">
+            <div class="imgBx">
+                <img src="http://pngimg.com/uploads/running_shoes/running_shoes_PNG5782.png" alt="nike-air-shoe">
+            </div>
+
+            <div class="contentBx">
+
+                <h2>{{name}}</h2>
+
+                <div class="size">
+                    <h3>Price :</h3>
+                    <span>{{price}} &#8376;</span>
+                </div>
+                <div class="color">
+                    <h3>Color : {{color}}</h3>
+                </div>
+                <form method="POST">
+                    <button type="submit">Buy Now</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
